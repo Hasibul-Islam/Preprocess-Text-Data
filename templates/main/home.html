@@ -8,16 +8,39 @@
 <br>
 <h1>Process your text data easily!!</h1>
 <br>
-<form method="post" id="usrform" class="form-group center">
+<form method="post" id="usrform" class="form-group center" enctype="multipart/form-data">
   {% csrf_token %}
 <div class="justified">
-<textarea rows="4" cols="50" name="comment" form="usrform">
+<textarea rows="4" cols="50" name="comment" >
 Enter text here...</textarea>
 </div>
 <br>
 <div style="text-align:center;">
 Or import an excel file instead
 <br>
+<br>
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    name="lemmetization"
+    value="lem"
+  />
+  <label class="form-check-label" for="flexCheckDefault">
+    Lemmetize words {Example: rocks : rock, corpora : corpus, better : good}
+  </label>
+</div>
+<div class="form-check">
+  <input
+    class="form-check-input"
+    type="checkbox"
+    name="stemming"
+    value="stem"
+  />
+  <label class="form-check-label" for="flexCheckDefault">
+    Stem words {Example: programing  :  program, languages  :  languag}
+  </label>
+</div>
 <br>
 <input type="file" id="myFile" name="filename">
 
@@ -29,7 +52,7 @@ Or import an excel file instead
 <p>{{text}}</p>
 
 {%else%}
-<p>The processed text will be displayed here.</p>
+<p>The processed text will be displayed here. Or download will start within few moments!</p>
 {% endif %}
 
 
