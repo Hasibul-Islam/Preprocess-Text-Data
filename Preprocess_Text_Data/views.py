@@ -4,6 +4,7 @@ import string
 from nltk.corpus import stopwords
 import pandas as pd
 import nltk
+import os
 nltk.download('stopwords')
 nltk.download('wordnet')
 import openpyxl
@@ -13,6 +14,7 @@ from nltk.tokenize import word_tokenize
 from nltk.stem import WordNetLemmatizer
 from nltk.stem import PorterStemmer
 from nltk.tokenize import word_tokenize
+from django.conf import settings
 def home(request):
     if request.method=='POST':
         try:
@@ -119,3 +121,14 @@ def download(request,df):
         )
         response['Content-Disposition'] = 'attachment; filename=%s' % filename
         return response
+    
+
+
+def download_sample(request):
+    file_path = os.path.join(settings.MEDIA_ROOT, 'Sample.xlsx')
+    if os.path.exists(file_path):
+        with open(file_path, 'rb') as fh:
+            response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+            return response
+    raise Http404
