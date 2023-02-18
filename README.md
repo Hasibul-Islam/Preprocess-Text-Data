@@ -4,17 +4,17 @@ This is a django project that can process your text dataset.
 
 You can either post text directly or upload an excel file to process data.
 
-Home Page
+##Home Page
 
 ![alt text](https://github.com/Hasibul-Islam/Preprocess-Text-Data/blob/main/Sample%20Pictures/Home.PNG?raw=true)
 
-Before Processing
+##Before Processing
 
 
 ![alt text](https://github.com/Hasibul-Islam/Preprocess-Text-Data/blob/main/Sample%20Pictures/Before.PNG?raw=true)
 
 
-After Processing 
+##After Processing 
 
 ![alt text](https://github.com/Hasibul-Islam/Preprocess-Text-Data/blob/main/Sample%20Pictures/After.PNG?raw=true)
 
